@@ -98,6 +98,7 @@ print(f"Sum = {sum(list_5_1)}")
 # занятий по нему. Вывести словарь на экран.
 # import codecs
 import re
+
 f6 = open("text6.txt", "r", encoding="UTF-8")
 str_6 = f6.readlines()
 list_names = [elem.split(':')[0] for elem in str_6]
@@ -109,3 +110,22 @@ print(dict_6)
 
 # %%
 
+# Необходимо построчно прочитать файл, вычислить прибыль каждой компании,
+# а также среднюю прибыль. Если фирма получила убытки, в расчет средней
+# прибыли ее не включать.
+import json
+
+f7 = open("text7.txt", "r", encoding="UTF-8")
+str_7 = f7.readlines()
+f7.close()
+list_str_7 = [elem.split(' ') for elem in str_7]
+dict_firms = {elem.split(' ')[0]: (int(elem.split(' ')[-2]) \
+               - int(elem.split(' ')[-1]))
+              for elem in str_7}
+
+av = sum([dict_firms[x] for x in list(dict_firms.keys())]) / len(dict_firms)
+list_firms = [dict_firms, {'average': av}]
+# Итоговый список сохранить в виде json-объекта в соответствующий файл.
+with open("text7.json", "w") as write_f:
+    json.dump(list_firms, write_f)
+print(json.dumps(list_firms))
