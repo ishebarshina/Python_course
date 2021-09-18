@@ -43,8 +43,8 @@ f2.close()
 # Определить, кто из сотрудников имеет оклад менее 20 тыс.,
 # вывести фамилии этих сотрудников.
 # Выполнить подсчет средней величины дохода сотрудников.
-
-f3 = open("text3.txt", "r")
+# import codecs
+f3 = open("text3.txt", "r", "utf_8_sig")
 lines = f3.readlines()
 empl_list = [line.split()[0] for line in lines
              if float(line.split()[1]) < 20000]
@@ -78,16 +78,34 @@ f4_2.close()
 
 # %%
 
+# 5. Создать (программно) текстовый файл, записать в него программно
+# набор чисел, разделенных пробелами. Программа должна подсчитывать сумму
+# чисел в файле и выводить ее на экран.
 
+list_5 = [1, 2.3, 4.5, 6.7]
+str_list_5 = [str(i) for i in list_5]
+f5 = open("text5.txt", "w")
+f5.writelines(' '.join(str_list_5))
+f5.close()
+f5 = open("text5.txt", "r")
+str_list_5_1 = f5.read()
+list_5_1 = [float(i) for i in str_list_5_1.split(' ')]
+print(f"Sum = {sum(list_5_1)}")
 
+# %%
 
+# 6. Сформировать словарь, содержащий название предмета и общее количество
+# занятий по нему. Вывести словарь на экран.
+# import codecs
+import re
+f6 = open("text6.txt", "r", encoding="UTF-8")
+str_6 = f6.readlines()
+list_names = [elem.split(':')[0] for elem in str_6]
+list_hours = [list(map(lambda x: int(x), re.findall(r'\d+', elem)))
+              for elem in str_6]
+dict_6 = {list_names[i]: sum(list_hours[i]) for i in range(len(list_names))}
+f6.close()
+print(dict_6)
 
-
-
-
-
-
-
-
-
+# %%
 
