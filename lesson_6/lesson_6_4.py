@@ -41,9 +41,9 @@ class Car:
 
     def go(self, speed):
         self.speed = speed
-        print(f"{self.color} {self.name} car started.")
+        print(f"{self.color} {self.name} car started moving.")
 
-    def stop(self, speed):
+    def stop(self):
         self.speed = 0
         print(f"{self.color} {self.name} car stoped.")
 
@@ -85,7 +85,44 @@ class PoliceCar(Car):
         self.is_police = True
 
 
-obj = 
+obj = Car("Nissan", "black")
+obj.go(60)
+obj.turn("left")
+obj.show_speed()
+obj.stop()
+obj.show_speed()
 
+obj = TownCar("Ford", "grey")
+obj.go(50)
+obj.turn("left")
+obj.show_speed()
+obj.stop()
+obj.show_speed()
 
+obj = TownCar("Mercedes", "dark blue")
+obj.go(80)
+obj.turn("left")
+obj.show_speed()
+obj.stop()
+obj.show_speed()
 
+obj = SportCar("Toyota Supra", "yellow")
+obj.go(120)
+obj.turn("right")
+obj.show_speed()
+obj.stop()
+obj.show_speed()
+
+obj = WorkCar("Kia", "white")
+obj.go(60)
+obj.turn("right")
+obj.show_speed()
+obj.stop()
+obj.show_speed()
+
+obj = PoliceCar("Volvo", "blue")
+obj.go(60)
+obj.turn("right")
+obj.show_speed()
+obj.stop()
+obj.show_speed()
