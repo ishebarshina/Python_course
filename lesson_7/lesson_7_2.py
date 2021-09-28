@@ -29,6 +29,8 @@ class Clothes(metaclass=ABCMeta):
 
     @staticmethod
     def total_fabric_expence(*argv):
+        """Метод для подсчета общего количества ткани.
+        Принимает в качестве аргументов объекты класса."""
         total = 0
         for obj in argv:
             total = total + obj.fabric_expence
@@ -67,13 +69,13 @@ suit3 = Suit("Suit3", 3)
 print(coat1.fabric_expence)
 print(coat2.fabric_expence)
 print(coat3.fabric_expence)
-print(coat1.fabric_expence + coat2.fabric_expence + coat3.fabric_expence)
-print(Clothes.total_fabric_expence(coat1, coat2, coat3))
-print(Clothes.total_fabric_expence(coat1, coat2, coat3))
+print(f"Total: \
+{coat1.fabric_expence + coat2.fabric_expence + coat3.fabric_expence}")
+print(f"Total: {Clothes.total_fabric_expence(coat1, coat2, coat3)}")
 print(suit1.fabric_expence)
 print(suit2.fabric_expence)
 print(suit3.fabric_expence)
-print(suit1.fabric_expence + coat2.fabric_expence)
-print(Clothes.total_fabric_expence(suit1, coat2))
+print(f"Total: {suit1.fabric_expence + coat2.fabric_expence}")
+print(f"Total: {Clothes.total_fabric_expence(suit1, coat2)}")
 
 
