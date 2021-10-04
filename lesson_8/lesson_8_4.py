@@ -13,14 +13,14 @@
 class OfficeEquipment:
     def __init__(self, name):
         self.name = name
-        self.status = "working"
+        self.current_status = "working"
 
     @property
     def status(self):
-        print("Current status: {self.status}")
+        print(f"Current status: {self.current_status}")
 
     def update_status(self):
-        self.status = input("Enter current status: ")
+        self.current_status = input("Enter current status: ")
 
 
 class Printer(OfficeEquipment):
@@ -70,7 +70,7 @@ class Scanner(OfficeEquipment):
 
 class Copier(OfficeEquipment):
     def __init__(self, name):
-        super().__init__(self, name)
+        super().__init__(name)
         self.paper = 0
 
     @property
@@ -87,7 +87,17 @@ class Copier(OfficeEquipment):
         else:
             print("Updated amount of paper: {self.paper} sheets")
 
+# %%
 
 class Warehouse:
-    """Класс, описывающий склад.
-    Композиция."""
+    """Класс, описывающий склад."""
+    def __init__(self, name):
+        self.name = name
+        self.copiers_in_stock = {}
+        self.scanners_in_stock = {}
+        self.printers_in_stock = {}
+
+
+    def add_item(obj):
+        if (type(obj) = type(Copier(""))):
+            
